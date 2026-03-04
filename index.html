@@ -3,14 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Revista Canina</title>
+
     <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             margin: 0;
             font-family: "Times New Roman", Times, serif;
             background-color: #f4f4f4;
         }
 
-        /* ====== HEADER ====== */
+        /* ===== HEADER ===== */
         header {
             display: flex;
             justify-content: space-between;
@@ -18,6 +23,9 @@
             padding: 20px 60px;
             background-color: white;
             border-bottom: 1px solid #ccc;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
         .logo img {
@@ -31,24 +39,29 @@
             gap: 15px;
         }
 
+        nav a {
+            text-decoration: none;
+        }
+
         nav button {
             padding: 10px 15px;
             border: none;
             background-color: #333;
             color: white;
             cursor: pointer;
-            transition: 0.3s;
+            transition: 0.3s ease;
             font-family: "Times New Roman", Times, serif;
         }
 
         nav button:hover {
-            background-color: #555;
+            background-color: #777;
+            transform: scale(1.05);
         }
 
-        /* ====== CONTENIDO TIPO REVISTA ====== */
+        /* ===== CONTENIDO ===== */
         .container {
             max-width: 1200px;
-            margin: 60px auto;
+            margin: 80px auto;
             padding: 0 40px;
         }
 
@@ -56,8 +69,17 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 80px;
+            margin-bottom: 100px;
             gap: 40px;
+
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .section img {
@@ -82,6 +104,7 @@
             line-height: 1.6;
         }
 
+        /* Responsive */
         @media (max-width: 900px) {
             .section {
                 flex-direction: column;
@@ -103,55 +126,117 @@
         }
     </style>
 </head>
+
 <body>
 
-    <!-- HEADER -->
-    <header>
-        <div class="logo">
-            <!-- Cambia logo.png por tu imagen -->
-            <img src="logo.png" alt="Logo">
-        </div>
-
-        <nav>
-            <button>Inicio</button>
-            <button>Nosotros</button>
-            <button>Nuestro perros</button>
-            <button>Como ayudar</button>
-            <button>Contacto</button>
-            <button>Boletin</button>
-        </nav>
-    </header>
-
-    <!-- CONTENIDO -->
-    <div class="container">
-
-        <!-- Sección 1 (Foto - Texto) -->
-        <div class="section">
-            <img src="foto1.jpg" alt="Perro 1">
-            <div class="text">
-                <h2>Título de la Sección</h2>
-                <p>
-                    Aquí puedes escribir el texto descriptivo. Este espacio está diseñado
-                    para funcionar como una revista digital, donde la imagen acompaña al texto.
-                    Puedes hablar sobre rescate, adopción o historias inspiradoras.
-                </p>
-            </div>
-        </div>
-
-        <!-- Sección 2 (Texto - Foto) -->
-        <div class="section reverse">
-            <img src="foto2.jpg" alt="Perro 2">
-            <div class="text">
-                <h2>Otra Historia</h2>
-                <p>
-                    En esta sección el orden se invierte automáticamente para generar
-                    dinamismo visual. Este estilo alternado crea una lectura más atractiva
-                    y profesional.
-                </p>
-            </div>
-        </div>
-
+<!-- HEADER -->
+<header>
+    <div class="logo">
+        <img src="logo.png" alt="Logo">
     </div>
+
+    <nav>
+        <a href="#inicio"><button>Inicio</button></a>
+        <a href="#nosotros"><button>Nosotros</button></a>
+        <a href="#perros"><button>Nuestro perros</button></a>
+        <a href="#ayuda"><button>Como ayudar</button></a>
+        <a href="#contacto"><button>Contacto</button></a>
+        <a href="#boletin"><button>Boletin</button></a>
+    </nav>
+</header>
+
+<div class="container">
+
+    <!-- INICIO -->
+    <div class="section" id="inicio">
+        <img src="foto1.jpg" alt="Inicio">
+        <div class="text">
+            <h2>Inicio</h2>
+            <p>
+                Bienvenido a nuestra revista digital dedicada al rescate y bienestar animal.
+                Aquí compartimos historias, información y oportunidades para ayudar.
+            </p>
+        </div>
+    </div>
+
+    <!-- NOSOTROS -->
+    <div class="section reverse" id="nosotros">
+        <img src="foto2.jpg" alt="Nosotros">
+        <div class="text">
+            <h2>Nosotros</h2>
+            <p>
+                Somos una organización comprometida con el cuidado y protección de perros.
+                Nuestro objetivo es promover la adopción responsable.
+            </p>
+        </div>
+    </div>
+
+    <!-- NUESTROS PERROS -->
+    <div class="section" id="perros">
+        <img src="foto3.jpg" alt="Perros">
+        <div class="text">
+            <h2>Nuestro perros</h2>
+            <p>
+                Conoce a los perros que buscan un hogar. Cada uno tiene una historia
+                especial y está listo para recibir amor.
+            </p>
+        </div>
+    </div>
+
+    <!-- COMO AYUDAR -->
+    <div class="section reverse" id="ayuda">
+        <img src="foto4.jpg" alt="Ayuda">
+        <div class="text">
+            <h2>Como ayudar</h2>
+            <p>
+                Puedes ayudar adoptando, donando o siendo voluntario. Cada acción
+                marca una gran diferencia en sus vidas.
+            </p>
+        </div>
+    </div>
+
+    <!-- CONTACTO -->
+    <div class="section" id="contacto">
+        <img src="foto5.jpg" alt="Contacto">
+        <div class="text">
+            <h2>Contacto</h2>
+            <p>
+                Escríbenos para más información o para comenzar tu proceso de adopción.
+                Estamos aquí para ayudarte.
+            </p>
+        </div>
+    </div>
+
+    <!-- BOLETIN -->
+    <div class="section reverse" id="boletin">
+        <img src="foto6.jpg" alt="Boletín">
+        <div class="text">
+            <h2>Boletin</h2>
+            <p>
+                Suscríbete a nuestro boletín para recibir noticias, eventos y
+                actualizaciones sobre nuestros rescates.
+            </p>
+        </div>
+    </div>
+
+</div>
+
+<!-- SCRIPT ANIMACION SCROLL -->
+<script>
+    const sections = document.querySelectorAll('.section');
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting){
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.2 });
+
+    sections.forEach(section => {
+        observer.observe(section);
+    });
+</script>
 
 </body>
 </html>
