@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Revista Canina</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: "Times New Roman", Times, serif;
+            background-color: #f4f4f4;
+        }
+
+        /* ====== HEADER ====== */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 60px;
+            background-color: white;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .logo img {
+            width: 120px;
+        }
+
+        nav {
+            width: 50%;
+            display: flex;
+            justify-content: flex-end;
+            gap: 15px;
+        }
+
+        nav button {
+            padding: 10px 15px;
+            border: none;
+            background-color: #333;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+            font-family: "Times New Roman", Times, serif;
+        }
+
+        nav button:hover {
+            background-color: #555;
+        }
+
+        /* ====== CONTENIDO TIPO REVISTA ====== */
+        .container {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 40px;
+        }
+
+        .section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 80px;
+            gap: 40px;
+        }
+
+        .section img {
+            width: 45%;
+            border-radius: 8px;
+        }
+
+        .text {
+            width: 50%;
+            text-align: justify;
+        }
+
+        .reverse {
+            flex-direction: row-reverse;
+        }
+
+        h2 {
+            margin-bottom: 15px;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+
+        @media (max-width: 900px) {
+            .section {
+                flex-direction: column;
+            }
+
+            .reverse {
+                flex-direction: column;
+            }
+
+            .section img,
+            .text {
+                width: 100%;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="logo">
+            <!-- Cambia logo.png por tu imagen -->
+            <img src="logo.png" alt="Logo">
+        </div>
+
+        <nav>
+            <button>Inicio</button>
+            <button>Nosotros</button>
+            <button>Nuestro perros</button>
+            <button>Como ayudar</button>
+            <button>Contacto</button>
+            <button>Boletin</button>
+        </nav>
+    </header>
+
+    <!-- CONTENIDO -->
+    <div class="container">
+
+        <!-- Sección 1 (Foto - Texto) -->
+        <div class="section">
+            <img src="foto1.jpg" alt="Perro 1">
+            <div class="text">
+                <h2>Título de la Sección</h2>
+                <p>
+                    Aquí puedes escribir el texto descriptivo. Este espacio está diseñado
+                    para funcionar como una revista digital, donde la imagen acompaña al texto.
+                    Puedes hablar sobre rescate, adopción o historias inspiradoras.
+                </p>
+            </div>
+        </div>
+
+        <!-- Sección 2 (Texto - Foto) -->
+        <div class="section reverse">
+            <img src="foto2.jpg" alt="Perro 2">
+            <div class="text">
+                <h2>Otra Historia</h2>
+                <p>
+                    En esta sección el orden se invierte automáticamente para generar
+                    dinamismo visual. Este estilo alternado crea una lectura más atractiva
+                    y profesional.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
